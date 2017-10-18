@@ -76,9 +76,26 @@ main .carrusel .next {
   border-radius: 3px 0 0 3px;
 }
 
+main .carrusel img {
+	width: 100%;
+	height: auto;
+}
+
 /* On hover, add a black background color with a little bit see-through */
 main .carrusel .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #55828A;
+  font-size: 35px;
+  padding: 8px 0px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 100%;
+  text-align: right;
+  text-shadow: -2px 1px #7E7B7B;
 }
 
 /* The dots/bullets/indicators */
@@ -115,21 +132,9 @@ main .carrusel .prev:hover, .next:hover {
   to {opacity: 1}
 }
 
-/*main .intro-content {
-	
-	width: 100%;
-	
-	background: lightblue;
-	height: 100%;
-
+@media screen and (max-width: 1000px) {
+	.text {
+		visibility: hidden;
+	}
 }
 
-main .intro-content .title {
-	display: flex;
-	justify-content: center;
-}
-
-main .intro-content .sub-title {
-	display: flex;
-	justify-content: center;
-}*/

@@ -1,6 +1,8 @@
 let slideIndex = 1;
-next = document.querySelector('.next');
-prev = document.querySelector('.prev');
+let slides = document.querySelectorAll('.imagenes');
+
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
 
 next.addEventListener('click', () => {
   moveSlide(1);
@@ -15,11 +17,11 @@ function moveSlide(n) {
   showSlides(slideIndex += n);
 }
 
-showSlides(slideIndex);
+
 
 function showSlides() {
   let i;
-  let slides = document.querySelectorAll('.imagenes');
+  // let slides = document.querySelectorAll('.imagenes');
   
   if (slideIndex > slides.length) {
     slideIndex = 1;
@@ -37,3 +39,10 @@ function showSlides() {
 
 }
 
+function carrousel() {
+  showSlides(slideIndex);
+  slideIndex++;
+  setTimeout(carrousel, 4000);
+}
+
+carrousel();
