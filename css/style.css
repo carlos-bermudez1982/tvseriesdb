@@ -1,62 +1,76 @@
-html, body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-
-}
-
-header {
+/* estilos del principales del sitio y el index*/
+#site-body {
 	display: flex;
-	width: 100%;
-	background: gray;
+	min-height: 100vh;
+	flex-direction: column;
+	margin: 0;
 }
 
-header nav {
+.nav {
+	background-color: gray;
+	height: 50px;
+	display: flex;
+	align-items: center;
+}
+
+.nav .logo {
+	flex: 1;
+	margin-left: 10px;
+	color: white;
+}
+
+.nav nav {
 	display: flex;
 	align-items: center;
 	width: 100%;
 	flex: 1;
-	
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
-header .logo {
-	flex: 1;
-	margin-left: 10px;
-}
-
-header nav ul {
+.nav nav ul {
 	list-style-type: none;
 	display: flex;
 	flex: 8;
 	align-content: center;
-
 }
 
-header nav ul li {
-	
+.nav nav ul li {
 	flex: 1;
 }
 
-header nav ul li a {
+.nav nav ul li a {
 	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	padding: 15px 30%;
+}
+
+.nav nav ul li a:hover {
+	background-color: #000000;
 }
 
 main {
-	display: flex;
+	flex: 1;
 }
 
-main .carrusel {
+.carrusel {
 	width: 100%;
 	position: relative;
 	margin: auto;
 }
 
-main .carrusel > .imagenes {
+.carrusel img {
+	width: 100%;
+	height: auto;
+}
+
+.carrusel > .imagenes {
 	display: none;
 	width: 100%;
 }
 
-main .carrusel .prev, .next {
+.carrusel .prev {
 	cursor: pointer;
 	position: absolute;
 	top: 50%;
@@ -70,24 +84,31 @@ main .carrusel .prev, .next {
 	border-radius: 0 3px 3px 0;
 }
 
-/* Position the "next button" to the right */
-main .carrusel .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-main .carrusel img {
-	width: 100%;
-	height: auto;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-main .carrusel .prev:hover, .next:hover {
+.carrusel .prev:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
+.carrusel .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 3px 0 0 3px;
+	right: 0;
+}
+
+.carrusel .next:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
 .text {
-  color: #55828A;
+  color: #596DC4;
   font-size: 35px;
   padding: 8px 0px;
   position: absolute;
@@ -95,26 +116,11 @@ main .carrusel .prev:hover, .next:hover {
   right: 8px;
   width: 100%;
   text-align: right;
-  text-shadow: -2px 1px #7E7B7B;
+  text-shadow: -2px 2px #7E7B7B;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor:pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -132,9 +138,86 @@ main .carrusel .prev:hover, .next:hover {
   to {opacity: 1}
 }
 
+.intro {
+	position: relative;
+	text-align: center;
+}
+
+footer {
+	background-color: gray;
+	height: 50px;
+}
+
 @media screen and (max-width: 1000px) {
 	.text {
 		visibility: hidden;
 	}
 }
+/*fin estilos principales y el index*/
 
+/*inicio estilos pagina de series*/
+
+.nav-list {
+	background-color: black;
+	width: 100%;
+	display: flex;
+}
+
+.series-nav {
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.series-nav .series-list {
+	color: white;
+	list-style-type: none;
+	flex: 1;
+	display: flex;
+}
+
+.series-nav .series-list li {
+	flex: 1;
+	/*flex-wrap: wrap;*/
+}
+
+.series-nav .series-list li a {
+	display: inline-block;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+}
+
+.series-nav .series-list li a:link, a:visited { 
+	text-decoration: none;
+	color: white;
+	
+}
+
+.series-nav .series-list li a:hover {
+	transform: scale(1.8);
+}
+
+.series {
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+.tv-series {
+	height: 400px;
+	width: 400px;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+.tv-series img {
+	width: 200px;
+	height: auto;
+}
+
+
+/* fin estilos pagina de series 
