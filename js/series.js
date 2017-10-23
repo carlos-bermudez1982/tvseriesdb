@@ -1,7 +1,7 @@
-let apiURL = "http://api.tvmaze.com/shows";
-let xhr;
+let apiURL = "http://api.tvmaze.com/";
+
 let divSeries = document.querySelector(".series");
-let response;
+
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 function loadSeries() {
-
+	let xhr;
+	let response;
+	
 	xhr = new XMLHttpRequest();
 
 	
@@ -56,10 +58,12 @@ function loadSeries() {
 					divSeries.innerHTML += `
 						<div class="series-section">
 							<h2 class="letter" name="`+section.trim()+`Series" id="`+section.trim()+`Series">`+section+`</h2>
-							<a id="return-top" href="#series-nav">Go Top</a>
+							<button id="return-top">Go Top</button>
+							
 						</div>
 						`
 					;
+					// <a id="return-top" href="#series-nav">Go Top</a>
 					// console.log(divSeries);
 					// console.log(`${response[i].name}`.substring(0,1));
 					
@@ -92,7 +96,7 @@ function loadSeries() {
 	}
 
 	// console.log(JSON.parse(response));
-	xhr.open('GET',apiURL,true);
+	xhr.open('GET',apiURL+'shows',true);
 	xhr.send();
 
 	
@@ -106,8 +110,10 @@ function loadSeries() {
 function seriesLink(objeto) {
 	let seriesLinks = document.querySelectorAll('.series-link');
 	let modal = document.querySelector('#series-info');
-	let modalContent = document.querySelector('.modal-content');
-	let span  = document.querySelector('.close');
+	let modalContent = document.querySelector('.modal-body');
+	let modalHeader = document.querySelector('.modal-header');
+	let modalFooter = document.querySelector('.modal-footer');
+	let close  = document.querySelector('#close');
 	let idSeries;
 	let seriesData;
 	// console.log(seriesLinks);
@@ -118,27 +124,64 @@ function seriesLink(objeto) {
 			idSeries = e.target.parentNode.id;
 			modal.style.display = 'block';
 
-			seriesData = JSON.stringify(objeto.filter(serie => {
+			seriesData = objeto.filter(serie => {
 				if (serie.id == idSeries) {
 					return serie
 				}
-			}));
+			});
 
-			console.log(seriesData.id);
+			seriesData = seriesData[0];
 
-			// modalContent.innerHTML = `
-			// 	<div class="series-image">
-			// 		<img src="${seriesData.image.original}" alt="${seriesData.name}" />
-			// 	</div>
-			// `;
+			console.log(seriesData);
+
+			modalHeader.innerHTML = `
+				<div class="series-header"> 
+					<h2>${seriesData.name}</h2>
+				</div>
+				<div id="close">&times;</div>
+				
+			`
+
+			modalContent.innerHTML = `
+				<div class="series-image">
+					<img src="${seriesData.image.original}" alt="${seriesData.name}" >
+				</div>
+				<div class="summary">
+					<b>Summary: </b>${seriesData.summary}
+					<div class="genres">
+						<b>Genres: </b>${seriesData.genres.toLocaleString()}
+					</div>
+					<div class="network">
+						<b>Network: </b>${seriesData.network.name}
+					</div>
+					<div class="released">
+						<b>Release Date: </b>${formatDate(seriesData.premiered)}
+					</div>
+					<div class="rating">
+						<b>Rating: </b>${seriesData.rating.average}
+					</div>
+					<div class="site">
+						<b>Official Site: </b> <a id="series-site" href="${validateSite(seriesData.officialSite)}" target="_blank">
+							${validateSite(seriesData.officialSite)}
+						</a> 
+					</div>
+					<div class="status">
+						<b>Status: </b>${seriesData.status}
+					</div>
+				</div>
+
+			`;
 
 
 
 		})
 	}
+	// console.log(idSeries);
+	// getSeasons(idSeries);
 
-	span.addEventListener('click', () => {
+	modalHeader.addEventListener('click', () => {
 		modal.style.display = 'none';
+		console.log('entro');
 	})
 
 	modal.addEventListener('click', (e) => {
@@ -150,5 +193,45 @@ function seriesLink(objeto) {
 
 }
 
+function formatDate(date) {
+	let fecha = new Date(date);
+	// console.log(fecha);
+
+	MyDateString = ('0' + (fecha.getMonth()+1)).slice(-2) + '/'
+             + ('0' + (fecha.getDate() +1)).slice(-2) + '/'
+             + fecha.getFullYear();
+    // console.log(MyDateString);
+    return MyDateString;
+}
+
+function validateSite(site) {
+	if (site == null) {
+		return '';
+	} else {
+		return site;
+	}
+}
+
+
+// funcion para obtener las temporadas de la serie.
+function getSeasons(id) {
+	let xhr;
+	let response;
+
+	xhr = new XMLHttpRequest();
+
+	xhr.onreadystatechange = function() {
+		let section;
+
+		if (this.readyState == 4 && this.status == 200) { 
+			response = JSON.parse(this.responseText);
+
+			console.log(response);
+		}
+	}
+
+	xhr.open('GET', apiURL+'shows/'+id+'seasons', true);
+	xhr.send();
+}
 
     // showResults();
