@@ -200,6 +200,7 @@ footer {
 .series-nav .series-list li a:link, a:visited { 
 	text-decoration: none;
 	color: white;
+	/*display: flex;*/
 	
 }
 
@@ -231,6 +232,7 @@ footer {
 	width: 200px;
 	height: auto;
 	border: 1px solid gray;
+	display:flex;
 
 }
 
@@ -241,7 +243,8 @@ footer {
 	align-items: center;
 	margin: 0 auto;
 	border: 1px solid gray;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+
 }
 
 .tv-series .series-title h3 {
@@ -261,17 +264,24 @@ footer {
 	display: inline-block;
 }
 
-#return-top {
-	float: right;
-	margin-top: 25px;
+#go-top {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 50;
+	background-color: black;
+	color: white;
+	cursor: pointer;
 	padding: 8px;
-	display: inline-block;
 	border: none;
 	outline: none;
+	border-radius: 5px;
 }
 
-#return-top:hover {
-	cursor: pointer;
+#go-top:hover {
+	/*cursor: pointer;*/
+	background-color: gray;
 }
 
 

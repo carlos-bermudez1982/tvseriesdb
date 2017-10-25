@@ -1,7 +1,7 @@
 let apiURL = "http://api.tvmaze.com/";
 
 let divSeries = document.querySelector(".series");
-
+let boton = document.querySelector("#go-top");
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -48,7 +48,7 @@ function loadSeries() {
 
 							<div class="series-section">
 								<h2 class="letter" name="0-9Series" id="0-9Series">0-9</h2>
-								
+								<hr />
 							</div>
 						
 					`;
@@ -58,8 +58,7 @@ function loadSeries() {
 					divSeries.innerHTML += `
 						<div class="series-section">
 							<h2 class="letter" name="`+section.trim()+`Series" id="`+section.trim()+`Series">`+section+`</h2>
-							<button id="return-top">Go Top</button>
-							
+							<hr />
 						</div>
 						`
 					;
@@ -82,9 +81,7 @@ function loadSeries() {
 			
 
 			}
-
-
-
+			
 			seriesLink(response);
 		} else {
 			divSeries.innerHTML = `
@@ -116,6 +113,7 @@ function seriesLink(objeto) {
 	let close  = document.querySelector('#close');
 	let idSeries;
 	let seriesData;
+	let seasons;
 	// console.log(seriesLinks);
 	for (let i=0; i < seriesLinks.length; i++) {
 		// console.log(1);
@@ -130,9 +128,15 @@ function seriesLink(objeto) {
 				}
 			});
 
+			// console.log(seasons);
 			seriesData = seriesData[0];
+			// console.log(seriesData);
+			// console.log(seriesData);
+			// console.log(idSeries);
 
-			console.log(seriesData);
+			
+
+			// console.log(seasons);
 
 			modalHeader.innerHTML = `
 				<div class="series-header"> 
@@ -152,7 +156,7 @@ function seriesLink(objeto) {
 						<b>Genres: </b>${seriesData.genres.toLocaleString()}
 					</div>
 					<div class="network">
-						<b>Network: </b>${seriesData.network.name}
+						<b>Network: </b>${validateNetwork(seriesData.network)}
 					</div>
 					<div class="released">
 						<b>Release Date: </b>${formatDate(seriesData.premiered)}
@@ -172,16 +176,17 @@ function seriesLink(objeto) {
 
 			`;
 
-
+			getSeasons(seriesData.id);
 
 		})
 	}
+	// console.log(idSeries)
 	// console.log(idSeries);
 	// getSeasons(idSeries);
 
 	modalHeader.addEventListener('click', () => {
 		modal.style.display = 'none';
-		console.log('entro');
+		// console.log('entro');
 	})
 
 	modal.addEventListener('click', (e) => {
@@ -212,11 +217,22 @@ function validateSite(site) {
 	}
 }
 
+function validateNetwork(network) {
+	if (network == null) {
+		return '';
+	} else {
+		return network.name;
+	}
+}
+
+
 
 // funcion para obtener las temporadas de la serie.
 function getSeasons(id) {
 	let xhr;
 	let response;
+	let modalContent = document.querySelector('.summary');
+	console.log(modalContent);
 
 	xhr = new XMLHttpRequest();
 
@@ -225,13 +241,37 @@ function getSeasons(id) {
 
 		if (this.readyState == 4 && this.status == 200) { 
 			response = JSON.parse(this.responseText);
+			
+			modalContent.innerHTML += `
+				<div class="seasons">
+					<b>Seasons: </b>${response.length}
+				</div>
+			`;
 
-			console.log(response);
+
+			// return response;
 		}
 	}
-
-	xhr.open('GET', apiURL+'shows/'+id+'seasons', true);
+	console.log(apiURL+'shows/'+id+'/seasons');
+	xhr.open('GET', apiURL+'shows/'+id+'/seasons', true);
 	xhr.send();
+
 }
 
-    // showResults();
+
+boton.addEventListener('click', () => {
+	document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+});
+
+window.onscroll = function() {
+	scrollFunction();
+}
+
+scrollFunction = () => {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		boton.style.display = 'block';
+	} else {
+		boton.style.display = 'none';
+	}
+}
