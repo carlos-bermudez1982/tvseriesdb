@@ -11,10 +11,11 @@
 	height: 50px;
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .nav .logo {
-	flex: 1;
+	/*flex: 1;*/
 	margin-left: 10px;
 	color: white;
 }
@@ -33,10 +34,12 @@
 	display: flex;
 	flex: 8;
 	align-content: center;
+	flex-wrap: wrap;
 }
 
 .nav nav ul li {
 	flex: 1;
+	/*display:flex;*/
 }
 
 .nav nav ul li a {
@@ -154,6 +157,54 @@ footer {
 		visibility: hidden;
 	}
 }
+
+.icon {
+	display: none;
+	font-size: 15px;
+	text-decoration: none;
+	color: white;
+	/*flex: 1;*/
+}
+
+.icon:hover {
+	color: black;
+}
+
+.nav-list-menu {
+	display: flex;
+	flex: 1;
+	background-color: gray;
+	height: 100%;
+	justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+	.nav nav ul li:not(:first-child) {
+		display: none;
+	}
+	.nav nav a.icon {
+		margin-right: 10px;
+		float: right;
+    	display: block;
+    	top: 0;
+		right: 0;
+		text-align: right;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.nav-list-menu {
+		display: block;
+	}
+	.nav-list-menu .responsive {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+
+
+
 /*fin estilos principales y el index*/
 
 /*inicio estilos pagina de series*/
@@ -428,7 +479,6 @@ hr {
 
 html {
 	scroll-behavior: smooth;
-	/*transition: 3s all ease-in-out;*/
 }
 
 /* fin estilos pagina de series */
@@ -440,12 +490,9 @@ html {
 	flex-wrap: wrap;
 	flex-direction: column;
 	margin-top: 2%;
-	/*border: 1px solid red;*/
-	/*margin-top: 50%;*/
 }
 
 .filters label {
-	/*display: inline-block;*/
 	width: 100%;
 	text-align: center;
 }
@@ -495,7 +542,52 @@ html {
 	flex: 1;
 	flex-wrap: wrap;
 	justify-content: center;
-	/*border: 1px solid black;*/
 }
+
+#schedules {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	margin: auto;
+
+}
+
+.schedule-content {
+	display: flex;
+	flex: 1;
+	border: 1px solid black;
+	flex-wrap: wrap;
+	margin: 10px 0 0 0;
+}
+
+.schedule-content > * {
+	width: 14.28%;
+
+}
+
+.schedule-content .header {
+	background-color: gray;
+	height: 30px;
+	overflow: hidden;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+.schedule-content .content {
+	display: flex;
+	flex: 1;
+	margin: 0 3px;
+	justify-content: center;
+}
+
+/*.schedule-content .content .show-epsummary {
+	display: flex;
+	flex-direction: column;
+}*/
+
+
 
 /* Fin Pagina de Horarios*/
