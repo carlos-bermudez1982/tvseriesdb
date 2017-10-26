@@ -45,9 +45,10 @@ function loadSeries() {
 				if (/[0-9]/.test(`${response[i].name}`.substring(0,1)) && section!='0-9') {
 					divSeries.innerHTML += `
 						
-
+							
 							<div class="series-section">
-								<h2 class="letter" name="0-9Series" id="0-9Series">0-9</h2>
+								<a href="#" id="0-9Series"></a>
+								<h2 class="letter2" name="0-9Series" class="letter">0-9</h2>
 								<hr />
 							</div>
 						
@@ -56,8 +57,10 @@ function loadSeries() {
 				} else if (/[A-Za-z]/.test(`${response[i].name}`.substring(0,1)) && section!=`${response[i].name}`.substring(0,1)) {
 					section = `${response[i].name}`.substring(0,1);
 					divSeries.innerHTML += `
+						
 						<div class="series-section">
-							<h2 class="letter" name="`+section.trim()+`Series" id="`+section.trim()+`Series">`+section+`</h2>
+							<a href="#" id="`+section.trim()+`Series" class="letter"></a>
+							<h2 class="letter2" name="`+section.trim()+`Series">`+section+`</h2>
 							<hr />
 						</div>
 						`
@@ -260,8 +263,8 @@ function getSeasons(id) {
 
 
 boton.addEventListener('click', () => {
-	document.body.scrollTop = 0; // For Chrome, Safari and Opera 
-    document.documentElement.scrollTop = 0; // For IE and Firefox
+	document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0; 
 });
 
 window.onscroll = function() {
@@ -269,9 +272,16 @@ window.onscroll = function() {
 }
 
 scrollFunction = () => {
+	let navlist = document.querySelector('.nav-list');
+	let mainMenu = document.querySelector('.nav');
 	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 		boton.style.display = 'block';
+		navlist.style.position = 'fixed';
+		navlist.style.top = 0;
+
 	} else {
 		boton.style.display = 'none';
+		navlist.style.position = 'sticky'
 	}
 }
+

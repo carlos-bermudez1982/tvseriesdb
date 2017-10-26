@@ -15,7 +15,6 @@
 }
 
 .nav .logo {
-	/*flex: 1;*/
 	margin-left: 10px;
 	color: white;
 }
@@ -39,7 +38,6 @@
 
 .nav nav ul li {
 	flex: 1;
-	/*display:flex;*/
 }
 
 .nav nav ul li a {
@@ -311,8 +309,16 @@ footer {
 	/*display: flex;*/
 }
 
-.letter {
+.letter2 {
 	display: inline-block;
+}
+
+.letter {
+	display: block;
+	top: -100px;
+	position: relative;
+	visibility: hidden;
+
 }
 
 #go-top {
