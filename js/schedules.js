@@ -1,4 +1,4 @@
-let apiURL = "http://api.tvmaze.com/schedule?country=US&date=";
+let apiURL = "https://api.tvmaze.com/schedule?country=US&date=";
 
 let boton = document.querySelector('#search');
 
