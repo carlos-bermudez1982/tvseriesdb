@@ -1,4 +1,8 @@
 /* estilos del principales del sitio y el index*/
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 #site-body {
 	display: flex;
 	min-height: 100vh;
@@ -7,48 +11,100 @@
 }
 
 .nav {
-	background-color: gray;
 	height: 50px;
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
+	margin: 0;
+	background-color: gray;
 }
 
 .nav .logo {
 	margin-left: 10px;
 	color: white;
+	float: left;
+	width: 60px;
+	height: 100%;
+	text-align: center;
+}
+
+.nav .logo h1 {
+	padding-top: 13px;
+	margin: 0;
+
 }
 
 .nav nav {
-	display: flex;
-	align-items: center;
 	width: 100%;
-	flex: 1;
-	max-width: 1200px;
 	margin: 0 auto;
+	float: left;
+	height: 100%;
+
 }
 
 .nav nav ul {
 	list-style-type: none;
-	display: flex;
-	flex: 8;
-	align-content: center;
-	flex-wrap: wrap;
+	display: inline-block;
 }
 
 .nav nav ul li {
-	flex: 1;
+	display: inline;
+	float: left;
+	padding: 0 20px;
+	height: 100%;
 }
 
-.nav nav ul li a {
+.nav nav ul a {
 	text-decoration: none;
-	font-weight: bold;
+	padding: 16px 35px;
 	color: white;
-	padding: 15px 30%;
 }
 
 .nav nav ul li a:hover {
 	background-color: #000000;
+}
+
+
+.icon {
+	display: none;
+	font-size: 15px;
+	text-decoration: none;
+	color: white;
+	margin-top: 13px;
+}
+
+.icon:hover {
+	color: black;
+}
+
+@media screen and (max-width: 768px) {
+	.nav nav ul li:not(:first-child) {
+		display: none;
+	}
+	.nav nav a.icon {
+		margin-right: 10px;
+		float: right;
+    	display: block;
+    	top: 0;
+		right: 0;
+		text-align: right;
+	}
+	.nav .nav-list-menu {
+		text-align: center;
+	}
+	.nav {
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.nav nav ul li {
+		display: block;
+		margin-bottom: 10px;
+
+	}
+	.nav-list-menu .responsive {
+		float: none;
+		display: block;
+		text-align: center;
+	}
 }
 
 main {
@@ -130,13 +186,21 @@ main {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+  	opacity: .4
+  } 
+  to {
+  	opacity: 1
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+  	opacity: .4
+  } 
+  to {
+  	opacity: 1
+  }
 }
 
 .intro {
@@ -156,52 +220,11 @@ footer {
 	}
 }
 
-.icon {
-	display: none;
-	font-size: 15px;
-	text-decoration: none;
-	color: white;
-	/*flex: 1;*/
-}
-
-.icon:hover {
-	color: black;
-}
-
-.nav-list-menu {
-	display: flex;
-	flex: 1;
-	background-color: gray;
-	height: 100%;
-	justify-content: center;
-}
-
-@media screen and (max-width: 768px) {
-	.nav nav ul li:not(:first-child) {
-		display: none;
-	}
-	.nav nav a.icon {
-		margin-right: 10px;
-		float: right;
-    	display: block;
-    	top: 0;
-		right: 0;
-		text-align: right;
+@media screen and (max-width: 400px) {
+	.series-list {
+		padding-left: 2px;
 	}
 }
-
-@media screen and (max-width: 768px) {
-	.nav-list-menu {
-		display: block;
-	}
-	.nav-list-menu .responsive {
-		float: none;
-		display: block;
-		text-align: left;
-	}
-}
-
-
 
 /*fin estilos principales y el index*/
 
@@ -237,7 +260,6 @@ footer {
 
 .series-nav .series-list li {
 	flex: 1;
-	/*flex-wrap: wrap;*/
 }
 
 .series-nav .series-list li a {
@@ -248,9 +270,7 @@ footer {
 
 .series-nav .series-list li a:link, a:visited { 
 	text-decoration: none;
-	color: white;
-	/*display: flex;*/
-	
+	color: white;	
 }
 
 .series-nav .series-list li a:hover {
@@ -272,9 +292,6 @@ footer {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	/*border: 1px solid gray;*/
-
-
 }
 
 .tv-series img {
@@ -305,8 +322,6 @@ footer {
 	margin-left: 10px;
 	margin-top: 30px;
 	margin-right: 15px;
-	/*border: 1px solid blue;*/
-	/*display: flex;*/
 }
 
 .letter2 {
@@ -337,7 +352,6 @@ footer {
 }
 
 #go-top:hover {
-	/*cursor: pointer;*/
 	background-color: gray;
 }
 
@@ -390,7 +404,6 @@ footer {
     animation-name: animatetop;
     animation-duration: 0.4s;
     border-radius: 10px;
-    /*display: flex;*/
 }
 
 @keyframes animatetop {
@@ -406,7 +419,6 @@ footer {
     justify-content: flex-end;
     text-align: right;
     order: 1;
-    /*border: 1px solid red;*/
 }
 
 #close:hover,
@@ -429,7 +441,6 @@ footer {
     width: 50%;
     order: 0;
 	flex: 11;
-	/*border: 1px solid red;*/
 }
 
 .modal-body {
@@ -443,10 +454,6 @@ footer {
 .series-image img {
 	max-height: 350px;
 	width: auto;
-	/*width: 300px;*/
-	/*height: auto;*/
-	/*margin: auto;*/
-	/*flex: 1;*/
 }
 
 .series-image {
@@ -589,11 +596,23 @@ html {
 	justify-content: center;
 }
 
-/*.schedule-content .content .show-epsummary {
-	display: flex;
-	flex-direction: column;
-}*/
-
-
-
+@media screen and (max-width: 768px) {
+	.schedule-content > * {
+		width: auto;
+	}
+}
 /* Fin Pagina de Horarios*/
+
+/* Inicio de pagina de contacto */
+
+
+/* Fin de pagina de contacto */
+
+
+/* estilo de pie de pagina */
+.footer-content {
+	color: white;
+	width: 100%;
+	text-align: center;
+}
+/* fin estilo pie de pagina */

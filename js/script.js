@@ -12,8 +12,15 @@ botonMenu.addEventListener('click', (e) => {
 		if (menuItems[i].classList.contains('responsive')) {
 			// console.log(menuItems[i].classList);
 			menuItems[i].classList.remove('responsive');
+			if (typeof(menuItems[i+1])!='undefined') {
+				menuItems[i+1].removeAttribute('style');
+			}
 		} else {
 			menuItems[i].classList.add('responsive');
+			if (typeof(menuItems[i+1])!='undefined') {
+				menuItems[i+1].style.display = 'block';
+			}
+
 		}
 	}
 
