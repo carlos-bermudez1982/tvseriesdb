@@ -49,10 +49,12 @@ function loadSeries() {
 							<div class="series-section">
 								<a href="#" id="0-9Series"></a>
 								<h2 class="letter2" name="0-9Series" class="letter">0-9</h2>
-								<hr />
+								
 							</div>
 						
 					`;
+
+					// <hr id="hr-series" />
 					section = '0-9'
 				} else if (/[A-Za-z]/.test(`${response[i].name}`.substring(0,1)) && section!=`${response[i].name}`.substring(0,1)) {
 					section = `${response[i].name}`.substring(0,1);
@@ -61,10 +63,11 @@ function loadSeries() {
 						<div class="series-section">
 							<a href="#" id="`+section.trim()+`Series" class="letter"></a>
 							<h2 class="letter2" name="`+section.trim()+`Series">`+section+`</h2>
-							<hr />
+							
 						</div>
 						`
 					;
+					// <hr id="hr-series" />
 					// <a id="return-top" href="#series-nav">Go Top</a>
 					// console.log(divSeries);
 					// console.log(`${response[i].name}`.substring(0,1));

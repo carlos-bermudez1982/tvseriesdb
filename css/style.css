@@ -488,7 +488,7 @@ footer {
 	color: blue;
 }
 
-hr {
+#hr-series {
 	height: 12px;
 	border: 0;
 	box-shadow: inset 0 10px 6px -6px #777;
@@ -614,7 +614,8 @@ html {
 	float: left;
 	/*border: 1px solid red;*/
 	width: 45%;
-	margin-left: 20px;
+	margin-left: 30px;
+	margin-top: 10px;
 	/*height: 100%;*/
 }
 
@@ -624,6 +625,26 @@ html {
 	font-weight: bold;
 }
 
+.powered a:hover {
+	color: #4B4B4B
+}
+
+.contact {
+	width: 100%;
+}
+
+.picture {
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+.picture img {
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	display: block;
+}
 
 .contact-form {
 	/*width: 475px;*/
@@ -633,6 +654,7 @@ html {
 	/*margin-right: 10%;*/
 	width: 45%;
 }
+
 
 form {
 	width: 100%;
@@ -685,6 +707,17 @@ form button {
 
 form button:hover {
 	background-color: #303030;
+}
+
+@media screen and (max-width: 768px) {
+	.contact-info {
+		width: 90%;
+		margin-right: 10px;
+	}
+	.contact-form {
+		width: 90%;
+		margin-left: 20px;
+	}
 }
 
 
