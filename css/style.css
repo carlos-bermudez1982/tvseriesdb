@@ -1,6 +1,6 @@
 /* estilos del principales del sitio y el index*/
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #site-body {
@@ -72,6 +72,11 @@ body {
 
 .icon:hover {
 	color: black;
+}
+
+.nav-list-menu {
+	/*width: 100%;*/
+	/*border: 1px solid black;*/
 }
 
 @media screen and (max-width: 768px) {
@@ -604,6 +609,83 @@ html {
 /* Fin Pagina de Horarios*/
 
 /* Inicio de pagina de contacto */
+
+.contact-info {
+	float: left;
+	/*border: 1px solid red;*/
+	width: 45%;
+	margin-left: 20px;
+	/*height: 100%;*/
+}
+
+.powered a {
+	color: gray;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+.contact-form {
+	/*width: 475px;*/
+	/*margin-top: 2%;*/
+	float: right;
+	margin-right: 20px;
+	/*margin-right: 10%;*/
+	width: 45%;
+}
+
+form {
+	width: 100%;
+}
+
+label {
+	display: block;
+	width: 100%;
+}
+
+form input, form textarea {
+	outline: none;
+	border: none;
+	border-bottom: 3px solid #B99595;
+	margin-bottom: 10px;
+	width: 100%;
+	background-color: transparent;
+}
+
+form input:focus {
+	border-bottom-color: #341818
+}
+
+form textarea:focus {
+	border-bottom-color: #341818
+}
+
+form textarea {
+	resize: none;
+}
+
+fieldset {
+	padding: 25px;
+	background-color: #EAEAEA;
+	box-shadow: -5px 5px 5px #949494;
+	border-radius: 5px;
+}
+
+form button {
+	border: none;
+	outline: none;
+	width: 100%;
+	background-color: #5A5555;
+	color: white;
+	font-weight: bold;
+	height: 30px;
+	margin-bottom: 3px;
+	border-radius: 5px;
+}
+
+form button:hover {
+	background-color: #303030;
+}
 
 
 /* Fin de pagina de contacto */
