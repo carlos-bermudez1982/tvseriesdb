@@ -16,7 +16,6 @@ function loadSeries() {
 	xhr = new XMLHttpRequest();
 
 	
-	// debugger;
 	xhr.onreadystatechange = function() {
 		let section;
 
@@ -37,10 +36,8 @@ function loadSeries() {
 		 
 
 			sortResults('name', true);
-			// console.log(response);
 			
 			for (i in response) {
-				// console.log(`${response[i].name}`.substring(0,1));
 
 				if (/[0-9]/.test(`${response[i].name}`.substring(0,1)) && section!='0-9') {
 					divSeries.innerHTML += `
@@ -53,8 +50,6 @@ function loadSeries() {
 							</div>
 						
 					`;
-
-					// <hr id="hr-series" />
 					section = '0-9'
 				} else if (/[A-Za-z]/.test(`${response[i].name}`.substring(0,1)) && section!=`${response[i].name}`.substring(0,1)) {
 					section = `${response[i].name}`.substring(0,1);
@@ -67,11 +62,6 @@ function loadSeries() {
 						</div>
 						`
 					;
-					// <hr id="hr-series" />
-					// <a id="return-top" href="#series-nav">Go Top</a>
-					// console.log(divSeries);
-					// console.log(`${response[i].name}`.substring(0,1));
-					
 				}
 
 				divSeries.innerHTML += `
@@ -98,16 +88,12 @@ function loadSeries() {
 		}
 	}
 
-	// console.log(JSON.parse(response));
 	xhr.open('GET',apiURL+'shows',true);
 	xhr.send();
 
 	
 
 }
-
-
-// console.log(seriesLinks);
 
 
 function seriesLink(objeto) {
@@ -120,9 +106,8 @@ function seriesLink(objeto) {
 	let idSeries;
 	let seriesData;
 	let seasons;
-	// console.log(seriesLinks);
+
 	for (let i=0; i < seriesLinks.length; i++) {
-		// console.log(1);
 		seriesLinks[i].addEventListener('click', (e) => {
 			e.preventDefault();
 			idSeries = e.target.parentNode.id;
@@ -134,15 +119,7 @@ function seriesLink(objeto) {
 				}
 			});
 
-			// console.log(seasons);
 			seriesData = seriesData[0];
-			// console.log(seriesData);
-			// console.log(seriesData);
-			// console.log(idSeries);
-
-			
-
-			// console.log(seasons);
 
 			modalHeader.innerHTML = `
 				<div class="series-header"> 
@@ -186,13 +163,10 @@ function seriesLink(objeto) {
 
 		})
 	}
-	// console.log(idSeries)
-	// console.log(idSeries);
-	// getSeasons(idSeries);
+
 
 	modalHeader.addEventListener('click', () => {
 		modal.style.display = 'none';
-		// console.log('entro');
 	})
 
 	modal.addEventListener('click', (e) => {
@@ -200,7 +174,7 @@ function seriesLink(objeto) {
 			modal.style.display = 'none';
 		}
 	});
-	console.log(objeto);
+	// console.log(objeto);
 
 }
 
@@ -238,7 +212,7 @@ function getSeasons(id) {
 	let xhr;
 	let response;
 	let modalContent = document.querySelector('.summary');
-	console.log(modalContent);
+	// console.log(modalContent);
 
 	xhr = new XMLHttpRequest();
 
@@ -253,12 +227,9 @@ function getSeasons(id) {
 					<b>Seasons: </b>${response.length}
 				</div>
 			`;
-
-
-			// return response;
 		}
 	}
-	console.log(apiURL+'shows/'+id+'/seasons');
+	// console.log(apiURL+'shows/'+id+'/seasons');
 	xhr.open('GET', apiURL+'shows/'+id+'/seasons', true);
 	xhr.send();
 

@@ -22,7 +22,7 @@ boton.addEventListener('click', (e) => {
 
 		if (this.readyState == 4) {
 			if (this.status == 200) {
-				console.log(JSON.parse(this.responseText));
+				// console.log(JSON.parse(this.responseText));
 				response = JSON.parse(this.responseText);
 
 

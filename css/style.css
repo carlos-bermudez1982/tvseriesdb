@@ -1,6 +1,11 @@
 /* estilos del principales del sitio y el index*/
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 body {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: 'Lobster', Georgia, "Times New Roman", Times, serif;
+}
+
+button {
+	font-family: 'Lobster', Georgia, "Times New Roman", Times, serif;
 }
 
 #site-body {
@@ -254,13 +259,23 @@ footer {
 	flex: 1;
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
+	/*width: 100%;*/
+	/*border: 2px solid red;*/
 }
+
+/*@media screen and (max-width: 768px) {
+	.series-nav {
+		width: 100%;
+	}
+}*/
 
 .series-nav .series-list {
 	color: white;
 	list-style-type: none;
 	flex: 1;
 	display: flex;
+	padding: 0 10px;
 }
 
 .series-nav .series-list li {
@@ -287,7 +302,7 @@ footer {
 	flex: 1;
 	flex-wrap: wrap;
 	align-content: center;
-	margin: 0 100px;
+	margin: 0 auto;
 }
 
 .tv-series {
@@ -409,6 +424,7 @@ footer {
     animation-name: animatetop;
     animation-duration: 0.4s;
     border-radius: 10px;
+    font-family: 'Century Gothic';
 }
 
 @keyframes animatetop {
@@ -436,7 +452,7 @@ footer {
 .modal-header {
     padding: 2px 16px;
     background-color: lightgray;
-    color: white;
+    /*color: white;*/
     height: 50px;
     display: flex;
     border-radius: 10px 10px 0 0;
@@ -729,5 +745,10 @@ form button:hover {
 	color: white;
 	width: 100%;
 	text-align: center;
+}
+
+.footer-content p {
+	margin: 0;
+	margin-top: 10px;
 }
 /* fin estilo pie de pagina */
