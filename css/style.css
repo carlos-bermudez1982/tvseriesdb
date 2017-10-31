@@ -232,11 +232,22 @@ footer {
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.series-list li {
+		font-size: 0.8em;
+	}
+}
+
 @media screen and (max-width: 400px) {
 	.series-list {
 		padding-left: 2px;
 	}
+	.series-list li {
+		font-size: 0.5em;
+	}
 }
+
+
 
 /*fin estilos principales y el index*/
 
@@ -279,6 +290,7 @@ footer {
 	flex: 1;
 	display: flex;
 	padding: 0 10px;
+	transition: all 0.5s ease;
 }
 
 .series-nav .series-list li {
