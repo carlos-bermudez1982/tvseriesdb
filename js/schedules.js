@@ -97,16 +97,18 @@ boton.addEventListener('click', (e) => {
 									${response[i].name}
 								</div>
 							</div>	
-							<div class="show-epsummary">
-								<div class="header">
-									<h3>Episode Summary</h3>
-								</div>
-								<div class="content">
-									${validateSummary(response[i].summary).trim()}
-								</div>
-							</div>
+
 						</div>
 					`; 					
+
+							// <div class="show-epsummary">
+							// 	<div class="header">
+							// 		<h3>Episode Summary</h3>
+							// 	</div>
+							// 	<div class="content">
+							// 		${validateSummary(response[i].summary).trim()}
+							// 	</div>
+							// </div>
 
 				// 	schedSection.innerHTML = `${response[i].airdate}`
 				}
