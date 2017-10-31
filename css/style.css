@@ -255,6 +255,7 @@ footer {
 	display: flex;
 	margin-bottom: 10px;
 	position: sticky;
+	box-shadow: 0 3px 10px black;
 }
 
 .series-nav {
@@ -759,4 +760,9 @@ form button:hover {
 	margin: 0;
 	margin-top: 10px;
 }
+
+input, textarea {
+	font-family: 'Century Gothic';
+}
+
 /* fin estilo pie de pagina */
